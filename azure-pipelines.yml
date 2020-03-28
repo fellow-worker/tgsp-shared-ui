@@ -28,7 +28,8 @@ steps:
   - task: FileTransform@2
     inputs:
       folderPath: '$(Agent.BuildDirectory)/_build'
-      jsonTargetFiles: 'package.json'
+      script: 'sed -i -e ''s/0.1.0/${name}/g'' package.json'
+      workingDirectory: '$(Agent.BuildDirectory)/_build'
     displayName: 'set version number'
 
   - task: CopyFiles@2
