@@ -49,16 +49,21 @@ steps:
       workingDir: '$(Agent.BuildDirectory)/_build'
     displayName: 'npm install'
   
+
+  - task: Npm@1
+    inputs:
+      command: 'install'
+    displayName: 'npm install for styleguidist'
+
   - task: Npm@1
     inputs:
       command: 'custom'
-      workingDir: '$(Agent.BuildDirectory)/_build'
       customCommand: 'run styleguidist-build'
     displayName: 'npm build styleguidist'
   
   - task: CopyFiles@2
     inputs:
-      SourceFolder: '_build/dist'
+      SourceFolder: '/dist'
       Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
     displayName: 'copy to staging'
