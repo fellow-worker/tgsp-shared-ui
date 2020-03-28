@@ -25,7 +25,6 @@ steps:
   - task: Npm@1
     inputs:
       command: 'publish'
-      workingDir: '$(Agent.BuildDirectory)/_build'
       publishEndpoint: 'registry.npmjs.org'
     displayName: 'npm publish'
   
