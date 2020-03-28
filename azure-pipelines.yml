@@ -27,7 +27,6 @@ steps:
   
   - task: CmdLine@2
     inputs:
-      folderPath: '$(Agent.BuildDirectory)/_build'
       script: 'sed -i -e ''s/\"version\": \"0.1.0\"/\"version\": \"0.1.$(Build.BuildId)\"/g'' package.json'
       workingDirectory: '$(Agent.BuildDirectory)/_build'
     displayName: 'set version number'
@@ -52,13 +51,6 @@ steps:
   
   - task: Npm@1
     inputs:
-      command: 'publish'
-      workingDir: '$(Agent.BuildDirectory)/_build'
-      publishEndpoint: 'registry.npmjs.org'
-    displayName: 'npm publish'
-  
-  - task: Npm@1
-    inputs:
       command: 'custom'
       workingDir: '$(Agent.BuildDirectory)/_build'
       customCommand: 'run styleguidist-build'
@@ -77,25 +69,3 @@ steps:
       ArtifactName: 'drop'
       publishLocation: 'Container'
     displayName: 'publish artifacts'
-
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '_build/dist'
-      Contents: '**'
-      TargetFolder: '$(Agent.BuildDirectory)/_docker/dist'
-    displayName: 'copy files for docker'
-
-  - task: CopyFiles@2
-    inputs:
-      Contents: 'Dockerfile'
-      TargetFolder: '$(Agent.BuildDirectory)/_docker'
-    displayName: 'copy Dockerfile'    
-
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'docker hub'
-      repository: 'fellowworker/tgsp-shared-ui'
-      command: 'buildAndPush'
-      Dockerfile: '**/Dockerfile'
-      buildContext: '_docker'
-    displayName: 'docker build and push'
