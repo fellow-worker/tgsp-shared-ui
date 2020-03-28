@@ -1,0 +1,53 @@
+{
+  "name": "tgsp-shared-ui",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Fellow Worker",
+    "email": "fellow-worker@outlook.com"
+  },
+  "contributors": [
+    {
+      "name": "The God's Story Project"
+    }
+  ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/fellow-worker/tgsp-shared-ui.git"
+  },
+  "dependencies": {
+    "macro-components": "^2.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.0.1",
+    "styled-system": "^5.1.5"
+  },
+  "scripts": {
+    "start": "styleguidist server",
+    "build": "styleguidist build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-styleguidist": "^11.0.4",
+    "webpack": "^4.42.1"
+  },
+  "files" : [ "notice" ]
+}
