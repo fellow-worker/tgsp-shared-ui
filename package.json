@@ -12,8 +12,8 @@
     }
   ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/fellow-worker/tgsp-shared-ui.git"
+    "type": "git",
+    "url": "https://github.com/fellow-worker/tgsp-shared-ui.git"
   },
   "dependencies": {
     "macro-components": "^2.0.0",
@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "styleguidist server",
-    "build": "styleguidist build"
+    "styleguidist-build": "styleguidist build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,5 +49,7 @@
     "react-styleguidist": "^11.0.4",
     "webpack": "^4.42.1"
   },
-  "files" : [ "notice" ]
+  "files": [
+    "notice"
+  ]
 }
