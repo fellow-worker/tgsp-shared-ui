@@ -19,36 +19,36 @@ steps:
   inputs:
     SourceFolder: 'src'
     Contents: '**'
-    TargetFolder: '$(Agent.BuildDirectory)'
+    TargetFolder: '$(Agent.BuildDirectory)/_build'
   displayName: 'copy files'
 
 - task: CopyFiles@2
   inputs:
     Contents: 'package.json'
-    TargetFolder: '$(Agent.BuildDirectory)'
+    TargetFolder: '$(Agent.BuildDirectory)/_build'
   displayName: 'copy package.json'
 
 - task: CopyFiles@2
   inputs:
     Contents: 'styleguide.config.js'
-    TargetFolder: '$(Agent.BuildDirectory)'
+    TargetFolder: '$(Agent.BuildDirectory)/_build'
   displayName: 'copy styleguide.config.js'
 
 - task: CmdLine@2
   inputs:
     script: 'sed -i -e ''s/src\///g'' styleguide.config.js'
-    workingDirectory: '$(Agent.BuildDirectory)'
+    workingDirectory: '$(Agent.BuildDirectory)/_build'
   displayName: 'prepare styleguidist'
 
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: '$(Agent.BuildDirectory)'
+    workingDir: '$(Agent.BuildDirectory)/_build'
   displayName: 'npm install'
 
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '$(Agent.BuildDirectory)'
+    workingDir: '$(Agent.BuildDirectory)/_build'
     customCommand: 'build-server'
