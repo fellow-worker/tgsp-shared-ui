@@ -11,54 +11,21 @@ steps:
     inputs:
       versionSpec: '12.x'
     displayName: 'install node.js'
-  
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: 'src'
-      Contents: '**'
-      TargetFolder: '$(Agent.BuildDirectory)/_build'
-    displayName: 'copy files'
-  
-  - task: CopyFiles@2
-    inputs:
-      Contents: '*.json'
-      TargetFolder: '$(Agent.BuildDirectory)/_build'
-    displayName: 'copy package.json'
-  
+
   - task: CmdLine@2
     inputs:
       script: 'sed -i -e ''s/\"version\": \"0.1.0\"/\"version\": \"0.1.$(Build.BuildId)\"/g'' package.json'
-      workingDirectory: '$(Agent.BuildDirectory)/_build'
     displayName: 'set version number'
-
-  - task: CopyFiles@2
-    inputs:
-      Contents: 'styleguide.config.js'
-      TargetFolder: '$(Agent.BuildDirectory)/_build'
-    displayName: 'copy styleguide.config.js'
-  
-  - task: CmdLine@2
-    inputs:
-      script: 'sed -i -e ''s/src\///g'' styleguide.config.js'
-      workingDirectory: '$(Agent.BuildDirectory)/_build'
-    displayName: 'prepare styleguidist'
   
   - task: Npm@1
     inputs:
       command: 'install'
-      workingDir: '$(Agent.BuildDirectory)/_build'
     displayName: 'npm install'
   
-
-  - task: Npm@1
-    inputs:
-      command: 'install'
-    displayName: 'npm install for styleguidist'
-
   - task: Npm@1
     inputs:
       command: 'custom'
-      customCommand: 'run styleguidist-build'
+      customCommand: 'run build'
     displayName: 'npm build styleguidist'
   
   - task: CopyFiles@2
