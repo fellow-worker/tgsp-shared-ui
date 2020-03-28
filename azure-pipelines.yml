@@ -53,13 +53,11 @@ steps:
   - task: Npm@1
     inputs:
       command: 'install'
-      workingDir: '$(Agent.BuildDirectory)'
     displayName: 'npm install for styleguidist'
 
   - task: Npm@1
     inputs:
       command: 'custom'
-      workingDir: '$(Agent.BuildDirectory)'
       customCommand: 'run styleguidist-build'
     displayName: 'npm build styleguidist'
   
