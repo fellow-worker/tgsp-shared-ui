@@ -24,9 +24,25 @@ steps:
   
   - task: Npm@1
     inputs:
+      command: 'publish'
+      workingDir: '$(Agent.BuildDirectory)/_build'
+      publishEndpoint: 'registry.npmjs.org'
+    displayName: 'npm publish'
+  
+  - task: Npm@1
+    inputs:
       command: 'custom'
       customCommand: 'run build'
     displayName: 'npm build styleguidist'
+
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'docker hub'
+      repository: 'fellowworker/tgsp-shared-ui'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
+      buildContext: '_docker'
+    displayName: 'docker build and push'
   
   - task: CopyFiles@2
     inputs:
