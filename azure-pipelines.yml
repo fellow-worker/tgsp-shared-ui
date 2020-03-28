@@ -28,7 +28,7 @@ steps:
   - task: CmdLine@2
     inputs:
       folderPath: '$(Agent.BuildDirectory)/_build'
-      script: 'sed -i -e ''s/\"version\": \"0.1.0\"/\"version\": \"${name}\"/g'' package.json'
+      script: 'sed -i -e ''s/\"version\": \"0.1.0\"/\"version\": \"0.1.$(Build.BuildId)\"/g'' package.json'
       workingDirectory: '$(Agent.BuildDirectory)/_build'
     displayName: 'set version number'
 
