@@ -21,7 +21,7 @@ steps:
   
   - task: CopyFiles@2
     inputs:
-      Contents: 'package.json'
+      Contents: '*.json'
       TargetFolder: '$(Agent.BuildDirectory)/_build'
     displayName: 'copy package.json'
   
