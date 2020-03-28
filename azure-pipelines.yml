@@ -30,7 +30,7 @@ steps:
   
   - task: CopyFiles@2
     inputs:
-      SourceFolder: '${Build.SourcesDirectory}/dist'
+      SourceFolder: 'dist'
       Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
     displayName: 'copy to staging'
