@@ -41,6 +41,9 @@ steps:
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
       buildContext: '.'
+      tags: |
+        0.1.$(Build.BuildId)
+        latest
     displayName: 'docker build and push'
   
   - task: CopyFiles@2
