@@ -25,10 +25,10 @@ steps:
       TargetFolder: '$(Agent.BuildDirectory)/_build'
     displayName: 'copy package.json'
   
-  - task: FileTransform@2
+  - task: CmdLine@2
     inputs:
       folderPath: '$(Agent.BuildDirectory)/_build'
-      script: 'sed -i -e ''s/0.1.0/${name}/g'' package.json'
+      script: 'sed -i -e ''s/\"version\": \"0.1.0\"/\"version\": \"${name}\"/g'' package.json'
       workingDirectory: '$(Agent.BuildDirectory)/_build'
     displayName: 'set version number'
 
