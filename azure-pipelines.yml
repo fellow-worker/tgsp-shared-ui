@@ -49,6 +49,14 @@ steps:
       workingDir: '$(Agent.BuildDirectory)/_build'
     displayName: 'npm install'
   
+
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      workingDir: '$(Agent.BuildDirectory)/_build'
+      customCommand: 'nstall --save --save-exact react-scripts@3.4.1'
+    displayName: 'npm install for styleguidist'
+
   - task: Npm@1
     inputs:
       command: 'custom'
