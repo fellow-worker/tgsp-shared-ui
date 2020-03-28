@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "styleguidist server",
-    "styleguidist-build": "styleguidist build"
+    "build": "styleguidist build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,6 +48,9 @@
   "devDependencies": {
     "react-styleguidist": "^11.0.4",
     "webpack": "^4.42.1"
+  },
+  "exports": {
+    "./": "./src/"
   },
   "files": [
     "notice"
