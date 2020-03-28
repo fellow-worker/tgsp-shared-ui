@@ -40,7 +40,7 @@ steps:
       repository: 'fellowworker/tgsp-shared-ui'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
-      buildContext: '_docker'
+      buildContext: '.'
     displayName: 'docker build and push'
   
   - task: CopyFiles@2
