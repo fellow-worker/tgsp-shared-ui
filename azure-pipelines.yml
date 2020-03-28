@@ -17,21 +17,19 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Agent.SourceDirectory)/src'
+    SourceFolder: 'src'
     Contents: '**'
     TargetFolder: '$(Agent.BuildDirectory)'
   displayName: 'copy files'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Agent.SourceDirectory)'
     Contents: 'package.json'
     TargetFolder: '$(Agent.BuildDirectory)'
   displayName: 'copy package.json'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Agent.SourceDirectory)'
     Contents: 'styleguide.config.js'
     TargetFolder: '$(Agent.BuildDirectory)'
   displayName: 'copy styleguide.config.js'
