@@ -49,6 +49,29 @@ steps:
 
 - task: Npm@1
   inputs:
+    command: 'publish'
+    workingDir: '$(Agent.BuildDirectory)/_build'
+    publishEndpoint: 'registry.npmjs.org'
+  displayName: 'npm publish'
+
+- task: Npm@1
+  inputs:
     command: 'custom'
     workingDir: '$(Agent.BuildDirectory)/_build'
-    customCommand: 'build-server'
+    customCommand: 'run build-server'
+  displayName: 'npm build styleguidist'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '_build/dist'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'copy to staging'
+
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'publish artificats'
