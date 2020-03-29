@@ -19,6 +19,11 @@ steps:
   
   - task: Npm@1
     inputs:
+      command: 'install'
+    displayName: 'npm install'
+
+  - task: Npm@1
+    inputs:
       command: 'custom'
       customCommand: 'run build-library'
     displayName: 'npm build library'
@@ -29,11 +34,6 @@ steps:
       publishEndpoint: 'registry.npmjs.org'
     displayName: 'npm publish'
   
-  - task: Npm@1
-    inputs:
-      command: 'install'
-    displayName: 'npm install'
-
   - task: Npm@1
     inputs:
       command: 'custom'
