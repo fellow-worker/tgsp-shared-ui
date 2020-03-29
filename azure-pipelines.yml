@@ -21,6 +21,12 @@ steps:
     inputs:
       command: 'install'
     displayName: 'npm install'
+
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'run build-library'
+    displayName: 'npm build library'
   
   - task: Npm@1
     inputs:
@@ -31,7 +37,7 @@ steps:
   - task: Npm@1
     inputs:
       command: 'custom'
-      customCommand: 'run build'
+      customCommand: 'run buid-styleguidist'
     displayName: 'npm build styleguidist'
 
   - task: Docker@2

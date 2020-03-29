@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "macro-components": "^2.0.0",
-    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
@@ -28,7 +27,8 @@
   },
   "scripts": {
     "start": "styleguidist server",
-    "build": "styleguidist build"
+    "buid-styleguidist": "styleguidist build",
+    "build-library": "babel src -d src --out-dir ./lib --copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,13 +46,23 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "prop-types": "^15.7.2",
     "react-styleguidist": "^11.0.4",
     "webpack": "^4.42.1"
   },
-  "exports": {
-    "./": "./src/"
-  },
   "files": [
-    "notice"
-  ]
+    "readme.md",
+    "notice",
+    "lib"
+  ],
+  "exports": {
+    "./": "./lib/"
+  }
 }

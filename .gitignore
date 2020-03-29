@@ -10,6 +10,7 @@
 
 # production
 /dist
+/lib
 
 # theme files
 /src/components/themes/tgsp.js
