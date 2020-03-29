@@ -4,7 +4,7 @@ export const base = {
     colors: {
         primary: '#123859',
         primaryText: 'white',
-        primaryBorder: '#EEEEEE',
+        primaryBorder: '#CCCCCC',
         primaryHover: '#091c2c',
 
         secondary : '#419FD9',

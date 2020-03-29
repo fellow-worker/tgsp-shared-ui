@@ -12,10 +12,6 @@
 /dist
 /lib
 
-# theme files
-/src/components/themes/tgsp.js
-/src/components/themes/sts.js
-
 # misc
 .DS_Store
 .env.local

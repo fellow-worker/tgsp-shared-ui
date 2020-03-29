@@ -17,6 +17,6 @@ module.exports = {
         let name = path.basename(componentPath, '.js').replace('.jsx','');
         let dir = path.dirname(componentPath)
         if(dir.startsWith('src/')) dir = dir.substring(4);
-        return `import ${name} from '${dir}';`
+        return `import ${name} from 'tgsp-shared-ui/lib/${dir}';`
       }
 };
