@@ -2,9 +2,11 @@
 /** This is the base theme, it will be extended by other themes */
 export const base = {
     colors: {
+        text: 'rgba(0, 0, 0, 0.87);',
+
         inputBorder : 'rgba(0, 0, 0, 0.23);',
         inputBorderHover : 'rgba(0, 0, 0, 0.87);',
-        inputText : 'black',
+        inputText : 'rgba(0, 0, 0, 0.87);',
 
         primary: '#0267ee',
         primaryText: 'white',

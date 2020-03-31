@@ -53,7 +53,7 @@ const Omittable = ({children}) => {
 }
 
 const FormChild = (props) => {
-    return <Box pt={1} pb={1} >{props.children}</Box>
+    return <Box pt={2} pb={2} >{props.children}</Box>
 }
 
 export default Form;

@@ -81,7 +81,7 @@ const TextField = (props) => {
     }
 
     const onChange = (event) => {
-        if(props.onInput) props.onChange(value);
+        if(props.onChange) props.onChange(value);
     }
 
     const outlined = (!!value || focused) ? "outlined" : "";
