@@ -1,7 +1,7 @@
 A very basic form consist just of a number of fields:
 
 ```jsx harmony
-import TextField from '../../structures/TextField/TextField';
+import TextField from '../../elements/TextField/TextField';
 
 <Form>
     <Form.Fields>
@@ -15,8 +15,7 @@ import TextField from '../../structures/TextField/TextField';
 Using the Heading macro component an header can be added
 
 ```jsx harmony
-import TextField from '../../structures/TextField/TextField';
-import { Header }  from '../../elements';
+import { Header, TextField }  from '../../elements';
 
 <Form>
     <Form.Heading>
@@ -32,7 +31,7 @@ import { Header }  from '../../elements';
 Buttons can be added by settings a (optional) confirm and / or cancel button, using the Buttons tag.
 
 ```jsx harmony
-import TextField from '../../structures/TextField/TextField';
+import TextField from '../../elements/TextField/TextField';
 
 <Form>
     <Form.Fields>
@@ -46,8 +45,7 @@ import TextField from '../../structures/TextField/TextField';
 But there is also the flexibility to use components in the form
 
 ```jsx harmony
-import TextField from '../../structures/TextField/TextField';
-import { Button, Box, Flex, Header }  from '../../elements';
+import { Button, Box, Flex, Header, TextField }  from '../../elements';
 
 <Form>
     <Form.Heading>

@@ -2,21 +2,33 @@
 /** This is the base theme, it will be extended by other themes */
 export const base = {
     colors: {
-        primary: '#123859',
+        inputBorder : 'rgba(0, 0, 0, 0.23);',
+        inputBorderHover : 'rgba(0, 0, 0, 0.87);',
+        inputText : 'black',
+
+        primary: '#0267ee',
         primaryText: 'white',
-        primaryBorder: '#CCCCCC',
-        primaryHover: '#091c2c',
-
-        secondary : '#419FD9',
+        primaryLight: '#6694ff',
+        primaryLightText: 'black',
+        primaryDark: '#003eba',
+        primaryDarkText: 'white',
+        
+        secondary : '#db004d',
         secondaryText : 'white',
-        secondaryBorder: '#CCCCCC',
-        secondaryHover : '#8dc5e8',
-
-        tertiary: '#D67031',        
+        secondaryLight: '#ff5478',
+        secondaryLightText: 'black',
+        secondaryDark: '#a20026',
+        secondaryDarkText: 'white',
+        
+        tertiary: '#ee8902',        
         tertiaryText: 'white',
-        tertiaryBorder: '#CCCCCC',
-        tertiaryHover : '#e29a6e',
+        tertiaryLight: '#ffb944',
+        tertiaryLightText: 'black',
+        tertiaryDark: '#b55b00',
+        tertiaryDarkText: 'white',
     },
+
+    fontFamily : "'Open Sans', sans-serif;",
 
     textSizes : {
         h1 : "32px",
@@ -25,9 +37,9 @@ export const base = {
         h4 : "20px",
         h5 : "16px",
         h6 : "12px",
-        p : "14px",
-        s : "12px",
-        xs : "10px"
+        p : "16px",
+        s : "14px",
+        xs : "12px"
     },
 
     mediaQueries : {
