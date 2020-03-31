@@ -1,7 +1,7 @@
 import React from 'react';
 import Macro from 'macro-components'
 
-import { Box, Button, Flex } from '../../elements'
+import { Box, Button, ButtonGroup, Flex } from '../../elements'
 
 const Buttons = (props) => (
     <FormButtons {...props}>
@@ -32,15 +32,17 @@ const FormButtons = (props) => {
 
     return (
         <Flex justifyContent="flex-end" pt={1} pb={1}>
-            <FormButton variant="secondary" button={cancel} />
-            <FormButton variant="primary" button={confirm} />
+            <ButtonGroup>
+                <FormButton color="secondary" button={cancel} />
+                <FormButton color="primary" button={confirm} />
+            </ButtonGroup>
         </Flex>
     )
 }
 
-const FormButton = ({button, variant}) => {
+const FormButton = ({button, color}) => {
     if(!button) return null;
-    if(!button.variant) button.variant = variant;
+    if(!button.color) button.color = color;
     return <Button {...button} />
 }
 

@@ -10,5 +10,5 @@ Using the password type, it becomes a password box
 
 As with the input, the color can be changed
 ```jsx
-    <TextField color="secondary" label="Password" type="password" />
+    <TextField color="secondary" value="password" label="Password" type="password" />
 ```

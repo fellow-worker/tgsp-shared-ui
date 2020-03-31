@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const Span = styled.span`
     color : ${props => Object.keys(props.theme.colors).includes(props.color) ? props.theme.colors[props.color] : props.color };
     font-size: ${props => props.theme.textSizes[props.size]};
+    font-family: ${props => props.theme.fontFamily};
     padding-top: calc(0.45 * ${props => props.theme.textSizes[props.size]});
     padding-bottom: calc(0.45 * ${props => props.theme.textSizes[props.size]});
     display:inline-block;

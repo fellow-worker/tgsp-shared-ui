@@ -6,6 +6,7 @@ import { Text } from '../../elements'
 
 const Bold = styled.span`
     font-weight:bold;
+    font-family: ${props => props.theme.fontFamily}
 `;
 
 /**

@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
 body, html {
-	font-family: 'Roboto','Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+	font-family: 'Open Sans', sans-serif;
 	margin:0;
 	padding:0;
+	font-weight: 400;
 	background-color:#fafbfb;
 }
 
