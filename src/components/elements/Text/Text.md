@@ -12,5 +12,5 @@ You can also you any color from the theme, in this example 'secondary'
 Additionally you can use anu text size from the theme,
 
 ```jsx
-<Text color="#888888">Different text</Text>
+<Text color="#888888" size="s" bold italic>Different text</Text>
 ```

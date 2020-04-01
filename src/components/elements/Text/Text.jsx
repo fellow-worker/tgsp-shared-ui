@@ -5,15 +5,16 @@ import PropTypes from 'prop-types';
 const Span = styled.span`
     color : ${props => Object.keys(props.theme.colors).includes(props.color) ? props.theme.colors[props.color] : props.color };
     font-size: ${props => props.theme.textSizes[props.size]};
-    font-family: ${props => props.theme.fontFamily}
+    font-family: ${props => props.theme.fontFamily};
+    font-style: ${props => Object.keys(props).includes("italic") ? "italic" :"inherit" };
+    font-weight: ${props => Object.keys(props).includes("bold") ? "bold" :"inherit" };
 `
 
 /**
  * A simple general text, with the option for coloring
  */
 const Text = (props) => {
-    const { color, size } = props;
-    return <Span size={size} color={color}>{props.children}</Span> 
+    return <Span {...props}>{props.children}</Span> 
 }
 
 Text.propTypes = {

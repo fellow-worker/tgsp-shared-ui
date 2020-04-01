@@ -12,7 +12,6 @@ const Buttons = (props) => (
 const Heading = ({ children }) => <Omittable>{children}</Omittable>;
 
 const Fields = ({ children }) => {
-    console.log(children);
     if(Array.isArray(children)) return children.map((c,i) => <FormChild key={i}>{c}</FormChild>);
     return <FormChild>{children}</FormChild>
 }
