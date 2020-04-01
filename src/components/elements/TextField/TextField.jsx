@@ -93,14 +93,20 @@ const TextField = (props) => {
         if(props.onChange) props.onChange(event.target.value);
     }
 
+    const onKeyup = (event) => {
+        if(event.keyCode === 13 && props.onEnterPress) props.onEnterPress(event.target.value);
+        if(props.onKeyup) props.onKeyup();
+    }
+    
     let className = (!!value || focused) ? "outlined" : "";
     if(props.disabled === true) className += " disabled"
     if(props.error === true) className += " error"
 
     let inputProps = {
         type : props.type, onFocus : onFocus, onBlur : onBlur, value :value, onInput : onInput, onChange : onChange, 
-        autoComplete : props.autocomplete, name : props.name
+        autoComplete : props.autocomplete, name : props.name, onKeyUp : onKeyup
     };
+
     if(props.disabled === true) inputProps.disabled = "disabled";
 
     return (
@@ -144,20 +150,20 @@ TextField.propTypes = {
 
     /** The autocomplete for the input */
     autocomplete : PropTypes.string,
+
+    /** this event is fired when the user hits enter  */
+    onEnterPress : PropTypes.func,
+
+    /** this event is fired when the user lets go of a key  */
+    onKeyup : PropTypes.func
 };
 
 TextField.defaultProps = {
     color: 'primary',
     size: 'p',
     type: 'text',
-    onFocus : undefined,
-    onBlur : undefined,
-    onInput : undefined,
-    onChange : undefined,
     error : false,
     disabled : false,
-    autocomplete : undefined,
-    name : undefined,
 };
 
 export default TextField;
