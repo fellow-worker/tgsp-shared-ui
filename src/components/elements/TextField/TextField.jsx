@@ -97,7 +97,10 @@ const TextField = (props) => {
     if(props.disabled === true) className += " disabled"
     if(props.error === true) className += " error"
 
-    let inputProps = { type : props.type, onFocus : onFocus, onBlur : onBlur, value :value, onInput : onInput, onChange : onChange };
+    let inputProps = {
+        type : props.type, onFocus : onFocus, onBlur : onBlur, value :value, onInput : onInput, onChange : onChange, 
+        autoComplete : props.autocomplete, name : props.name
+    };
     if(props.disabled === true) inputProps.disabled = "disabled";
 
     return (
@@ -105,7 +108,6 @@ const TextField = (props) => {
             <input {...inputProps}  />
             <TextLabel className={className} color={props.color} size={props.size}>{props.label}</TextLabel>
         </Outlined>
-        
     )
 }
 
@@ -136,6 +138,12 @@ TextField.propTypes = {
 
     /** When set the field will be disabled */
     error : PropTypes.bool,
+
+    /** The name for the input */
+    name : PropTypes.string,
+
+    /** The autocomplete for the input */
+    autocomplete : PropTypes.string,
 };
 
 TextField.defaultProps = {
@@ -148,6 +156,8 @@ TextField.defaultProps = {
     onChange : undefined,
     error : false,
     disabled : false,
+    autocomplete : undefined,
+    name : undefined,
 };
 
 export default TextField;

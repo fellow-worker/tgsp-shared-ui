@@ -34,15 +34,15 @@ export const base = {
     fontFamily : "'Open Sans', sans-serif;",
 
     textSizes : {
-        h1 : "32px",
-        h2 : "28px",
-        h3 : "24px",
-        h4 : "20px",
-        h5 : "16px",
-        h6 : "12px",
-        p : "16px",
-        s : "14px",
-        xs : "12px"
+        h1 : "3.2rem",
+        h2 : "2.8rem",
+        h3 : "2.4rem",
+        h4 : "2.0rem",
+        h5 : "1.6rem",
+        h6 : "1.2rem",
+        p : "1.4rem",
+        s : "1.2rem",
+        xs : "1.0rem"
     },
 
     mediaQueries : {

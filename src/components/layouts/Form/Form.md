@@ -1,15 +1,24 @@
-A very basic form consist just of a number of fields:
+A very basic form consist just of a number (one or more) of fields:
 
 ```jsx harmony
 import TextField from '../../elements/TextField/TextField';
 
 <Form>
     <Form.Fields>
-        <TextField labelWidth="120px" label="Username" />
-        <TextField labelWidth="120px" label="Password" type="password" />
+        <TextField label="Username" />
+        <TextField label="Password" type="password" />
     </Form.Fields>
 </Form>
+```
 
+```jsx harmony
+import TextField from '../../elements/TextField/TextField';
+
+<Form>
+    <Form.Fields>
+        <TextField color="tertiary" label="Email" />
+    </Form.Fields>
+</Form>
 ```
 
 Using the Heading macro component an header can be added
@@ -19,11 +28,11 @@ import { Header, TextField }  from '../../elements';
 
 <Form>
     <Form.Heading>
-        <Header variant="h3" color="secondary">Please logon</Header>
+        <Header variant="h3" color="secondary">Provide information</Header>
     </Form.Heading>
     <Form.Fields>
-        <TextField labelWidth="120px" label="Username" />
-        <TextField labelWidth="120px" label="Password" type="password" />
+        <TextField label="Name" />
+        <TextField label="Location" />
     </Form.Fields>
 </Form>
 ```
@@ -35,8 +44,8 @@ import TextField from '../../elements/TextField/TextField';
 
 <Form>
     <Form.Fields>
-        <TextField labelWidth="120px" label="Username" />
-        <TextField labelWidth="120px" label="Password" type="password" />
+        <TextField label="Name" />
+        <TextField label="Occupation" />
     </Form.Fields>
     <Form.Buttons confirm={{label : "Save" }} cancel={{label : "Cancel" }} />
 </Form>
@@ -53,8 +62,8 @@ import { Button, Box, Flex, Header, TextField }  from '../../elements';
         <Box mt={2} mb={2} style={{ borderTop: "1px solid #eee", height: "1px", width:"100%",  }} />
     </Form.Heading>
     <Form.Fields>
-        <TextField labelWidth="120px" label="Username" />
-        <TextField labelWidth="120px" label="Password" type="password" />
+        <TextField label="Username" />
+        <TextField label="Password" type="password" />
     </Form.Fields>
     <Form.Buttons>
         <Box mt={2} mb={2} style={{ borderTop: "1px solid #eee", height: "1px", width:"100%",  }} />

@@ -11,7 +11,11 @@ const Buttons = (props) => (
 
 const Heading = ({ children }) => <Omittable>{children}</Omittable>;
 
-const Fields = ({ children }) => children.map((c,i) => <FormChild key={i}>{c}</FormChild>);
+const Fields = ({ children }) => {
+    console.log(children);
+    if(Array.isArray(children)) return children.map((c,i) => <FormChild key={i}>{c}</FormChild>);
+    return <FormChild>{children}</FormChild>
+}
 
 
 const Form = Macro({ Heading, Fields, Buttons })(({ Heading, Fields, Buttons }, props) => (

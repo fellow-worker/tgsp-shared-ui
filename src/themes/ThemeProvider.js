@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import theme from './tgsp';
+import theme from './styleguidist';
 
 export default props => (
     <ThemeProvider theme={theme}>
