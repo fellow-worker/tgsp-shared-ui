@@ -85,11 +85,12 @@ const TextField = (props) => {
 
     const onInput = (event) => {
         setValue(event.target.value);
-        if(props.onInput) props.onInput(value);
+        if(props.onInput) props.onInput(event.target.value);
     }
 
     const onChange = (event) => {
-        if(props.onChange) props.onChange(value);
+        setValue(event.target.value);
+        if(props.onChange) props.onChange(event.target.value);
     }
 
     let className = (!!value || focused) ? "outlined" : "";
