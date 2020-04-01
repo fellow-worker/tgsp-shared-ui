@@ -8,7 +8,17 @@ Using the password type, it becomes a password box
     <TextField label="Password" type="password" />
 ```
 
-As with the input, the color can be changed
+As with text, the color can be changed
 ```jsx
-    <TextField color="secondary" value="password" label="Password" type="password" />
+    <TextField color="tertiary" value="password" label="Password" type="password" />
+```
+
+Validation can be added be setting the error to true, this will override the color
+```jsx
+    <TextField color="secondary" error={true}  label="email" />
+```
+
+The same applies to disabled
+```jsx
+    <TextField color="secondary" disabled={true}  label="username" />
 ```

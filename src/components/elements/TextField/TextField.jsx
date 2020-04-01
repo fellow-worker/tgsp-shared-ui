@@ -14,7 +14,7 @@ const Outlined = styled.div`
 
     > input {
         border-width:0;
-        font-family: ${props => props.theme.fontFamily}
+        font-family: ${props => props.theme.fontFamily};
         width:100%;
         padding:10px 10px;
         box-sizing:border-box;
@@ -31,6 +31,10 @@ const Outlined = styled.div`
     &.outlined {
         border : 1px solid ${props => Object.keys(props.theme.colors).includes(props.color) ? props.theme.colors[props.color] : props.color};
     }
+
+    &.error {
+        border : 1px solid ${props => props.theme.colors.inputError};
+    }
 `;
 
 const TextLabel = styled.div`
@@ -41,7 +45,7 @@ const TextLabel = styled.div`
     box-sizing:border-box;
     padding: 0 2px;
 
-    font-family: ${props => props.theme.fontFamily}
+    font-family: ${props => props.theme.fontFamily};
     line-height: calc(1.75 * ${props => props.theme.textSizes[props.size]});
     font-size: ${props => props.theme.textSizes[props.size]};
     left:10px;
@@ -54,6 +58,10 @@ const TextLabel = styled.div`
         top:-14px;
         font-size: calc(0.75 * ${props => props.theme.textSizes[props.size]});
         color: ${props => Object.keys(props.theme.colors).includes(props.color) ? props.theme.colors[props.color] : props.color};
+    }
+
+    &.outlined.error {
+        color : ${props => props.theme.colors.inputError};
     }
 `
 
@@ -84,17 +92,21 @@ const TextField = (props) => {
         if(props.onChange) props.onChange(value);
     }
 
-    const outlined = (!!value || focused) ? "outlined" : "";
+    let className = (!!value || focused) ? "outlined" : "";
+    if(props.disabled === true) className += " disabled"
+    if(props.error === true) className += " error"
+
+    let inputProps = { type : props.type, onFocus : onFocus, onBlur : onBlur, value :value, onInput : onInput, onChange : onChange };
+    if(props.disabled === true) inputProps.disabled = "disabled";
 
     return (
-        <Outlined className={outlined}  color={props.color} size={props.size}>
-            <input type={props.type} onFocus={onFocus} onBlur={onBlur} value={value} onInput={onInput} onChange={onChange}  />
-            <TextLabel className={outlined} color={props.color} size={props.size}>{props.label}</TextLabel>
+        <Outlined className={className}  color={props.color} size={props.size}>
+            <input {...inputProps}  />
+            <TextLabel className={className} color={props.color} size={props.size}>{props.label}</TextLabel>
         </Outlined>
         
     )
 }
-
 
 TextField.propTypes = {
     /** The color of the text, accepts any color from the theme or css color */
@@ -103,19 +115,38 @@ TextField.propTypes = {
     /** The size of the text, accepts any size from the theme */
     size: PropTypes.oneOf(['p', 's', 'xs']),
 
-    /**
-     * The style variant to use
-     */
-    variant: PropTypes.oneOf(['outlined', 'regular']),
+    /** This method is fired when the field is focused */
+    onFocus : PropTypes.func,
+
+    /** This method is fired when the field is blurred */
+    onBlur : PropTypes.func,
+
+    /** This method is fired when the value of field is changed */
+    onChange : PropTypes.func,
+
+    /** This method is fired when the value of field is changed */
+    onInput : PropTypes.func,    
+
+    /** The type of the field */
+    type : PropTypes.oneOf(['text', 'password']),
+
+    /** When set the field will be disabled */
+    disabled : PropTypes.bool,
+
+    /** When set the field will be disabled */
+    error : PropTypes.bool,
 };
 
 TextField.defaultProps = {
     color: 'primary',
     size: 'p',
-    border: undefined,
     type: 'text',
-    labelWidth: 'auto',
-    variant: 'outlined'
+    onFocus : undefined,
+    onBlur : undefined,
+    onInput : undefined,
+    onChange : undefined,
+    error : false,
+    disabled : false,
 };
 
 export default TextField;

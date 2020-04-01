@@ -7,6 +7,7 @@ export const base = {
         inputBorder : 'rgba(0, 0, 0, 0.23);',
         inputBorderHover : 'rgba(0, 0, 0, 0.87);',
         inputText : 'rgba(0, 0, 0, 0.87);',
+        inputError : '#d50000',
 
         primary: '#0267ee',
         primaryText: 'white',
@@ -22,11 +23,11 @@ export const base = {
         secondaryDark: '#a20026',
         secondaryDarkText: 'white',
         
-        tertiary: '#ee8902',        
+        tertiary: 'rgb(70,72,116)',        
         tertiaryText: 'white',
-        tertiaryLight: '#ffb944',
+        tertiaryLight: 'rgb(98,102,165)',
         tertiaryLightText: 'black',
-        tertiaryDark: '#b55b00',
+        tertiaryDark: 'rgb(51,52,73)',
         tertiaryDarkText: 'white',
     },
 
