@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'
 import Text from "../Text/Text";
 
@@ -9,12 +9,17 @@ const StandBy = (props) => {
     const { min, max } = props;
     const [ dots, setDots ] = useState(min);
 
-    const interval = () => {
-        const value = Math.max((dots + 1) % (max + 1), min);
-        setDots(value);
-    }
+    useEffect(() => {
 
-    setTimeout(interval,400);
+        const interval = () => {
+            const value = Math.max((dots + 1) % (max + 1), min);
+            setDots(value);
+        }
+    
+        setTimeout(interval,400);
+    },[dots,max,min])
+
+
 
     return <Text {...props}>{".".repeat(dots)}</Text> 
 }
