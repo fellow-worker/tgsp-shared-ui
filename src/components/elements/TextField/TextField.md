@@ -22,3 +22,8 @@ The same applies to disabled
 ```jsx
     <TextField color="secondary" disabled={true}  label="username" />
 ```
+
+A text field has several method that capture events, they are returning the value in a callback
+```jsx
+    <TextField color="tertiary" onChange={(value) => console.log(value)} label="Value" />
+```

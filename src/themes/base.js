@@ -32,6 +32,8 @@ export const base = {
     },
 
     fontFamily : "'Open Sans', sans-serif;",
+    fontWeightHeader : "100",
+    fontWeightText : "400",
 
     textSizes : {
         h1 : "3.2rem",

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
@@ -70,8 +70,14 @@ const TextLabel = styled.div`
  * @param {*} props 
  */
 const TextField = (props) => {
+
+    const { onChange } = props;
     const [ focused, setFocused ] = useState(false);
     const [ value, setValue ] = useState((props.value) ? props.value : "");
+
+    useEffect(() => {
+        if(onChange) onChange(value);
+    },[value, onChange])
 
     const onFocus = (event) => {
         setFocused(true)
@@ -83,19 +89,12 @@ const TextField = (props) => {
         if(props.onBlur) props.onBlur();
     }
 
-    const onInput = (event) => {
+    const onChangeHandler = (event) => {
         setValue(event.target.value);
-        if(props.onInput) props.onInput(event.target.value);
-    }
-
-    const onChange = (event) => {
-        setValue(event.target.value);
-        if(props.onChange) props.onChange(event.target.value);
     }
 
     const onKeyup = (event) => {
-        if(event.keyCode === 13 && props.onEnterPress) props.onEnterPress(event.target.value);
-        if(props.onKeyup) props.onKeyup();
+        if(event.keyCode === 13 && props.onEnterPress) props.onEnterPress(value);
     }
     
     let className = (!!value || focused) ? "outlined" : "";
@@ -103,7 +102,7 @@ const TextField = (props) => {
     if(props.error === true) className += " error"
 
     let inputProps = {
-        type : props.type, onFocus : onFocus, onBlur : onBlur, value :value, onInput : onInput, onChange : onChange, 
+        type : props.type, onFocus : onFocus, onBlur : onBlur, value :value, onChange : onChangeHandler, 
         autoComplete : props.autocomplete, name : props.name, onKeyUp : onKeyup
     };
 
@@ -134,9 +133,6 @@ TextField.propTypes = {
     /** This method is fired when the value of field is changed */
     onChange : PropTypes.func,
 
-    /** This method is fired when the value of field is changed */
-    onInput : PropTypes.func,    
-
     /** The type of the field */
     type : PropTypes.oneOf(['text', 'password']),
 
@@ -154,9 +150,6 @@ TextField.propTypes = {
 
     /** this event is fired when the user hits enter  */
     onEnterPress : PropTypes.func,
-
-    /** this event is fired when the user lets go of a key  */
-    onKeyup : PropTypes.func,
 
     /** when set to true, the field will auto focus */
     autoFocus : PropTypes.bool

@@ -6,6 +6,7 @@ const Span = styled.span`
     color : ${props => Object.keys(props.theme.colors).includes(props.color) ? props.theme.colors[props.color] : props.color };
     font-size: ${props => props.theme.textSizes[props.size]};
     font-family: ${props => props.theme.fontFamily};
+    font-weight: ${props => props.theme.fontWeightHeader};    
     padding-top: calc(0.45 * ${props => props.theme.textSizes[props.size]});
     padding-bottom: calc(0.45 * ${props => props.theme.textSizes[props.size]});
     display:inline-block;
@@ -36,7 +37,7 @@ Header.propTypes = {
 
     /** 
      * The size of the text, accepts any size from the theme. 
-     * If size is onmitted it will adapt to the variant size  
+     * If size is omitted it will adapt to the variant size  
      */
     size : PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 's', 'xs']),
 
