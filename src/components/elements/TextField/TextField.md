@@ -10,7 +10,7 @@ Using the password type, it becomes a password box
 
 As with text, the color can be changed
 ```jsx
-    <TextField color="tertiary" value="password" label="Password" type="password" />
+    <TextField color="tertiary" autoFocus value="password" label="Password" type="password" />
 ```
 
 Validation can be added be setting the error to true, this will override the color

@@ -108,6 +108,7 @@ const TextField = (props) => {
     };
 
     if(props.disabled === true) inputProps.disabled = "disabled";
+    if(!!props.autoFocus) inputProps.autoFocus = true;
 
     return (
         <Outlined className={className}  color={props.color} size={props.size}>
@@ -155,7 +156,10 @@ TextField.propTypes = {
     onEnterPress : PropTypes.func,
 
     /** this event is fired when the user lets go of a key  */
-    onKeyup : PropTypes.func
+    onKeyup : PropTypes.func,
+
+    /** when set to true, the field will auto focus */
+    autoFocus : PropTypes.bool
 };
 
 TextField.defaultProps = {

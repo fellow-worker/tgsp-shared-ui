@@ -4,9 +4,10 @@ import ButtonGroup from './ButtonGroup/ButtonGroup';
 import Flex from './Flex/Flex';
 import Header from './Header/Header';
 import Label from './Label/Label';
+import StandBy from './StandBy/StandBy';
 import Text from './Text/Text';
 import TextField from './TextField/TextField';
 
 export {
-    Box, Button, ButtonGroup, Flex, Header, Label, Text, TextField
+    Box, Button, ButtonGroup, Flex, Header, Label, StandBy, Text, TextField
 }
